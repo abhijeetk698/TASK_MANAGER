@@ -2,9 +2,29 @@
 <h1>HOME</h1>
 
 <div>
-    filter :
-    <form>
-
+    <form action="/home" method="GET">
+        <div>filter By:- </div>
+        <div>
+            <div> Task Type : </div>
+            <select name="taskType"> 
+                <option value="">--Please choose an option--</option>
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Playing">Playing</option>
+                <option value="others">others</option>
+            </select>
+        </div>
+        <div>
+            <div> status : </div>
+            <select name="status"> 
+                <option value="">--Please choose an option--</option>
+                <option value="completed">completed</option>
+                <option value="in_progress">In-progress</option>
+                <option value="new">New</option>
+            </select>
+        </div>
+        <button class="btn btn-success"> submit</button>
     </form>
 </div>
 
