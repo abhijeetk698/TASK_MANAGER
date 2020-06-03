@@ -1,0 +1,50 @@
+<%- include("./partials/header")%>
+<h1>HOME</h1>
+
+<div>
+    filter :
+    <form>
+
+    </form>
+</div>
+
+<a href="/new"><h4>NEW</h4></a>
+<% for(var i=task.length-1;i>=0;i--){ %>
+    <div>
+        <hr>
+        <div>
+            Title : <%=task[i].title%>
+        </div>
+        
+        <div>
+            id : <%=task[i]._id%>
+        </div>
+       
+        <div>
+            <div>Body :</div> 
+            <div style="white-space:pre-line;">
+                <%=task[i].body%>
+            </div>
+        </div>
+
+        <div>
+            <div>Task Type : </div>
+            <div><strong> <%=task[i].taskType %></strong></div>
+        </div>
+
+        <div>
+            <div>Status : </div>
+            <div><strong> <%=task[i].status %></strong></div>
+        </div>
+
+        <div style="font-size: small;">
+            Date : <%=task[i].created%>
+        </div>
+        <a href='/home/<%=task[i]._id%>/edit' class="btn btn-success">edit</a>
+        <form action="/home/<%=task[i]._id%>/delete?_method=DELETE" method="POST" style="display:inline">
+            <button type="submit" class="btn btn-danger">delete</button>
+        </form>
+        <hr>
+    </div>
+<%}%>
+<%- include("./partials/footer")%>

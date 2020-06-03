@@ -1,0 +1,35 @@
+<%- include("./partials/header")%>
+<form action="/home" method="POST">
+    <div>
+        <label> Title:</label>
+        <input name="title" type="text" placeholder="title">
+    </div>
+    <div>
+        <div>body : </div >
+        <textarea rows="10" cols="70" name="body" placeholder="type here.....">
+        
+        </textarea>
+    </div> 
+    <div>
+        <div> Task Type : </div>
+        <select name="taskType"> 
+            <option value="">--Please choose an option--</option>
+            <option value="Personal">Personal</option>
+            <option value="Work">Work</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Playing">Playing</option>
+            <option value="others">others</option>
+        </select>
+    </div>
+    <div>
+        <div> status : </div>
+        <select name="status"> 
+            <option value="">--Please choose an option--</option>
+            <option value="completed">completed</option>
+            <option value="in_progress">In-progress</option>
+            <option value="new">New</option>
+        </select>
+    </div>
+    <input type="submit" value="submit"> 
+</form>
+<%- include("./partials/footer")%>

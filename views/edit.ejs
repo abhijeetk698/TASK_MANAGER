@@ -1,0 +1,37 @@
+<%- include("./partials/header")%>
+<form action="/home/<%=task._id%>?_method=PUT" method="POST">
+    <div>
+        <label> Title </label>
+        <input name="task[title]" type="text" placeholder="title" value=<%=task.title%> >
+    </div>
+    <div>
+        <div >body</div >
+        <textarea rows="5" cols="60" name="task[body]" placeholder="type here.....">
+            <%=task.body%>
+        </textarea>
+    </div>
+    <div>
+        <!--have to add default values for scroll downs -->
+        <div>
+            <div> Task Type : </div>
+            <select name="task[taskType]"> 
+                <option value="">--Please choose an option--</option>
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Playing">Playing</option>
+                <option value="others">others</option>
+            </select>
+        </div>
+        <div>
+            <div> status : </div>
+            <select name="task[status]"> 
+                <option value="">--Please choose an option--</option>
+                <option value="completed">completed</option>
+                <option value="in_progress">In-progress</option>
+                <option value="new">New</option>
+            </select>
+        </div>
+    <input class="btn btn-primary" type="submit" value="submit"> 
+</form>
+<%- include("./partials/footer")%>
