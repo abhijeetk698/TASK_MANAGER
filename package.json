@@ -1,5 +1,5 @@
 {
-  "name": "todoList",
+  "name": "todolist",
   "version": "1.0.0",
   "description": "A todo list with some interesting features and database support and authentication",
   "main": "index.js",
@@ -26,5 +26,6 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.1"
-  }
+  },
+  "devDependencies": {}
 }
