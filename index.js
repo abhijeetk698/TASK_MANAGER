@@ -47,24 +47,13 @@ app.get('/',(req,res)=>{
 });
 
 app.get("/home",isLoggedIn,(req,res)=>{
-    var searchKey = {userID:req.user._id}
-    if(JSON.stringify(req.query)!="{}"){
-        var status = req.query.status;
-        var taskType=req.query.taskType;
-        if(taskType!=""){
-            searchKey.taskType=taskType;
-        }if(status!=""){
-            searchKey.status=status;
-        }
-    }
-    console.log(searchKey);
-    Task.find(searchKey,(err,task)=>{
+    User.findById(req.user._id).populate("tasks").exec((err,user)=>{
         if(err){
-            console.log(err);
+            console.log("error while recieving entries from the database");
         }else{
-            res.render("home",{task:task})
+            res.render("home.ejs",{task:user.tasks});
         }
-    })
+    });
 });
 
 app.get('/new',isLoggedIn,(req,res)=>{
@@ -167,6 +156,3 @@ function isLoggedIn(req,res,next){
 app.listen(3000,()=>{
     console.log('server is running...')
 });
-
-
-/**************************************************************************** */

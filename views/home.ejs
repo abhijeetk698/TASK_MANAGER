@@ -2,12 +2,12 @@
 <h1>HOME</h1>
 
 <div>
-    <form action="/home" method="GET">
+    <form action="/home" method="GET" id="filterForm">
         <div>filter By:- </div>
         <div>
             <div> Task Type : </div>
-            <select name="taskType"> 
-                <option value="">--Please choose an option--</option>
+            <select name="taskType" id="f_taskType"> 
+                <option value="NULL">--Please choose an option--</option>
                 <option value="Personal">Personal</option>
                 <option value="Work">Work</option>
                 <option value="Shopping">Shopping</option>
@@ -17,20 +17,21 @@
         </div>
         <div>
             <div> status : </div>
-            <select name="status"> 
-                <option value="">--Please choose an option--</option>
+            <select name="status" id="f_status"> 
+                <option value="NULL">--Please choose an option--</option>
                 <option value="completed">completed</option>
                 <option value="in_progress">In-progress</option>
                 <option value="new">New</option>
             </select>
         </div>
-        <button class="btn btn-success"> submit</button>
+        <button class="btn btn-success" id="filterBtn"> submit</button>
     </form>
 </div>
 
 <a href="/new"><h4>NEW</h4></a>
+<div class="container" id="containerBlock">
 <% for(var i=task.length-1;i>=0;i--){ %>
-    <div>
+    <div class="tasks">
         <hr>
         <div>
             Title : <%=task[i].title%>
@@ -49,12 +50,12 @@
 
         <div>
             <div>Task Type : </div>
-            <div><strong> <%=task[i].taskType %></strong></div>
+            <div><strong><span class="taskType"><%=task[i].taskType %></span></strong></div>
         </div>
 
         <div>
             <div>Status : </div>
-            <div><strong> <%=task[i].status %></strong></div>
+            <div><strong> <span class="status"><%=task[i].status %></span></strong></div>
         </div>
 
         <div style="font-size: small;">
@@ -67,4 +68,7 @@
         <hr>
     </div>
 <%}%>
+</div>
+<script src="../home.js">
+</script>
 <%- include("./partials/footer")%>
