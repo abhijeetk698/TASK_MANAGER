@@ -6,11 +6,13 @@
     <title>Todo-List</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <link rel="stylesheet" href="../styles.css"> 
 </head>  
 <body>
 
-<nav class="navbar navbar-dark navbar-expand-sm  fixed-top">
+<nav class="navbar navbar-dark navbar-expand-sm">
     <div class="container"> 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
             <span class="navbar-toggler-icon"></span>
@@ -22,6 +24,7 @@
                 <li class="nav-item"> <a class="nav-link" href="/register"><strong>SignUP</strong></a></li>
                 <li class="nav-item"> <a class="nav-link" href="/login"><strong>Login</strong></a></li>
                 <%}else{%>
+                <li class="nav-item"><span class="nav-link" style="color: white;"><strong>Welcome <%=currentUser.username%></strong></span></li>
                 <li class="nav-item"> <a class="nav-link" href="/logout"><strong>Logout</strong></a></li>
                 <%}%>
             </ul>

@@ -1,20 +1,19 @@
 <%- include("./partials/header")%>
 <div class="container">
 <h1>HOME</h1>
-
-<a href="/new"><h4>NEW</h4></a>
+<div style="margin : 20px auto 20px auto">
+    <a class="btn btn-success new" href="/new ">NEW TASK</a>
+</div>
 <div class="row">
-    <div id="filterBlock" class="col-12 col-sm-3">
+    <div class="col-12 col-sm-3">
+        <div id="filterBlock">
         <form action="/home" method="GET" id="filterForm">
             <div><h3>Filter By:- </h3></div>
             <div>
-                <div>labelling : </div>
-                <div>
-                    <input type="radio" id="asc" name="order" value="asc">
-                    <label for="asc">Ascending</label>
-                    <input type="radio" id="dsc" name="order" value="dsc" checked>
-                    <label for="dsc">Descending</label>
-                </div>
+                <input type="radio" id="asc" name="order" value="asc">
+                <label for="asc">Ascending</label>
+                <input type="radio" id="dsc" name="order" value="dsc" checked>
+                <label for="dsc">Descending</label>
             </div>
             <div>
                 <label for="f_title"> Title </label>
@@ -42,16 +41,33 @@
             </div>
             <button class="btn btn-success" id="filterBtn"> submit</button>
         </form>
+        </div>
+        <div class="alarm-clock">
+            <div class="date">
+                <span class="month"></span>
+                <span class="day"></span>,
+                <span class="year"></span>
+            </div>
+        
+            <div class="time">
+                <span class="hours"></span>
+                <span class="colon">:</span>
+                <span class="minutes"></span>
+                <span class="colon">:</span>
+                <span class="seconds"></span>
+            </div>
+        </div>
     </div>
 
     <div class="col-sm-1"></div>
 
     <div class="col-12 col-sm-8">
     <% for(var i=task.length-1;i>=0;i--){ %>
-        <div class="tasks row border">
+        <div class="row tasks ">
             <div class="col-12 col-sm-9">
                 <div>
                     <span class="title h2"><%=task[i].title%></span>
+                    <hr>
                 </div>
                 <div>
                     <div>Body :</div> 

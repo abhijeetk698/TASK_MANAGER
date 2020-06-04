@@ -3,10 +3,18 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.new{
+    background: lightseagreen;
+    padding:10px 10px auto ;
+    display: block;
+}
+
 .tasks{
     margin: 20px 20px 20px 20px;
     background: white;
     padding: 50px 20px 20px 50px;
+    border-radius: 10px;
+    border: 10px #0DB8DE solid;
 }
 
 .btn{
@@ -18,13 +26,26 @@ body {
 .navbar-dark {
     background-color: #0DB8DE;
 }
+.navbar .navbar-dark .navbar-expand-sm{
+    margin-bottom: 30px;
+}
+.navbar{
+    margin-bottom: 30px;
+}
 .containerBlock{
     background: lightslategray;
 }
 
 #filterBlock{
     background: lightslategray;
+    min-height: 400px;
+    position: relative;
+    padding: 10px;
+    border: 10px #0DB8DE solid;
+    border-radius: 10px;
+    margin:10px auto 10px auto;
 }
+
 
 .login-box {
     margin-top: 75px;
@@ -148,4 +169,83 @@ label {
 
 .loginbttm {
     padding: 0px;
+}
+
+/******CLOCK************/
+@import url("https://fonts.googleapis.com/css?family=Orbitron");
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+.alarm-clock {
+  position: relative;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #0DB8DE;
+}
+.alarm-clock .date {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  z-index: 9;
+}
+.alarm-clock .time {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px 15px;
+  background-color: #333;
+  border-radius: 10px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 52px;
+}
+.alarm-clock .time span {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #e74c3c;
+  text-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
+  line-height: 1.75;
+}
+.alarm-clock .time span:nth-of-type(5) {
+  width: 90px;
+}
+.alarm-clock .time span.colon {
+  width: 12px;
+  text-align: center;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
