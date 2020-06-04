@@ -1,9 +1,24 @@
 <%- include("./partials/header")%>
 <h1>HOME</h1>
 
+<a href="/new"><h4>NEW</h4></a>
+
 <div>
     <form action="/home" method="GET" id="filterForm">
-        <div>filter By:- </div>
+        <div><h3>Filter By:- </h3></div>
+        <div>
+            <div>labelling : </div>
+            <div>
+                <input type="radio" id="asc" name="order" value="asc">
+                <label for="asc">Ascending</label>
+                <input type="radio" id="dsc" name="order" value="dsc" checked>
+                <label for="dsc">Descending</label>
+            </div>
+        </div>
+        <div>
+            <label for="f_title"> Title </label>
+            <input id="f_title" type="text" name="title">
+        </div>
         <div>
             <div> Task Type : </div>
             <select name="taskType" id="f_taskType"> 
@@ -28,13 +43,13 @@
     </form>
 </div>
 
-<a href="/new"><h4>NEW</h4></a>
+
 <div class="container" id="containerBlock">
 <% for(var i=task.length-1;i>=0;i--){ %>
     <div class="tasks">
         <hr>
         <div>
-            Title : <%=task[i].title%>
+            Title : <span class="title"><%=task[i].title%></span>
         </div>
         
         <div>
