@@ -2,13 +2,11 @@
 <form action="/home/<%=task._id%>?_method=PUT" method="POST">
     <div>
         <label> Title </label>
-        <input name="task[title]" type="text" placeholder="title" value=<%=task.title%> >
+        <input name="task[title]" type="text" placeholder="title" value="<%=task.title%>" >
     </div>
     <div>
         <div >body</div >
-        <textarea rows="5" cols="60" name="task[body]" placeholder="type here.....">
-            <%=task.body%>
-        </textarea>
+        <textarea rows="5" cols="60" name="task[body]" placeholder="type here....."><%=task.body%></textarea>
     </div>
     <div>
         <!--have to add default values for scroll downs -->
@@ -31,6 +29,9 @@
                 <option value="in_progress">In-progress</option>
                 <option value="new">New</option>
             </select>
+        </div>
+        <div>
+            <input type="date" name="task[dueDate]" value="2020-01-01"> 
         </div>
     <input class="btn btn-primary" type="submit" value="submit"> 
 </form>

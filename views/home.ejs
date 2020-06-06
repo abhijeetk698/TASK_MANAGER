@@ -1,6 +1,48 @@
-<%- include("./partials/header")%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <link rel="stylesheet" href="../styles.css"> 
+</head>  
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark ">
+    <a class="navbar-brand" href="/home">To-Do-List</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="form-inline my-2 my-lg-0" id="searchForm" action="/home" method="GET">
+        <input class="form-control mr-sm-2" id="f_title" type="search" name="title" placeholder="Search">
+        <button class="btn" id="navbtn" type="submit">Search By Title</button>
+        </form>
+      <ul class="navbar-nav mr-auto" id="navbarItems">
+        <li class="nav-item">
+            <span class="nav-link" style="color: white;">
+                <strong>Welcome <%=currentUser.username%></strong>
+            </span> 
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+        </li>
+        <li class="nav-item" style="color: white;">
+            <span class="nav-link" id="archiveBtn">Archive</span>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+/************************************************************************************************************/
+
 <div class="container">
-<h1>HOME</h1>
 <div style="margin : 20px auto 20px auto">
     <a class="btn btn-success new" href="/new ">NEW TASK</a>
 </div>
@@ -15,10 +57,10 @@
                 <input type="radio" id="dsc" name="order" value="dsc" checked>
                 <label for="dsc">Descending</label>
             </div>
-            <div>
+            <!--<div>
                 <label for="f_title"> Title </label>
                 <input id="f_title" type="text" name="title">
-            </div>
+            </div>-->
             <div>
                 <div> Task Type : </div>
                 <select name="taskType" id="f_taskType"> 
@@ -63,7 +105,7 @@
 
     <div class="col-12 col-sm-8">
     <% for(var i=task.length-1;i>=0;i--){ %>
-        <div class="row tasks ">
+        <div class="tasks row">
             <div class="col-12 col-sm-9">
                 <div>
                     <span class="title h2"><%=task[i].title%></span>
@@ -87,6 +129,9 @@
 
                 <div style="font-size: small;">
                     Date : <%=task[i].created%>
+                </div>
+                <div style="font-size: small;">
+                   ( Due Date : <%=task[i].dueDate%>)
                 </div>
                 <div class="row">
                     <div class="col-12">

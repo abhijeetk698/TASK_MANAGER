@@ -23,6 +23,7 @@
                 <%if(!currentUser){%>
                 <li class="nav-item"> <a class="nav-link" href="/register"><strong>SignUP</strong></a></li>
                 <li class="nav-item"> <a class="nav-link" href="/login"><strong>Login</strong></a></li>
+                
                 <%}else{%>
                 <li class="nav-item"><span class="nav-link" style="color: white;"><strong>Welcome <%=currentUser.username%></strong></span></li>
                 <li class="nav-item"> <a class="nav-link" href="/logout"><strong>Logout</strong></a></li>

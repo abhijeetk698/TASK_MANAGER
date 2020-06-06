@@ -5,6 +5,9 @@ var taskSchema=new mongoose.Schema({
     body:String,
     taskType:String,
     status:String,
+    dueDate:{
+        type: Date
+    },
     userID:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User"

@@ -17,6 +17,11 @@ body {
     border: 10px #0DB8DE solid;
 }
 
+#navbarItems{
+  margin-left: 50%;
+  margin-right:auto;
+}
+
 .btn{
     min-width: 150px;
     margin-top: 5px;
@@ -154,6 +159,11 @@ label {
 .login-btm {
     float: left;
 }
+
+#navbtn{
+  background-color:orange;
+}
+
 
 .login-button {
     padding-right: 0px;

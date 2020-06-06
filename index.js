@@ -91,7 +91,7 @@ app.get('/home/:id/edit',isLoggedIn,(req,res)=>{
 })
 
 app.put("/home/:id/",isLoggedIn,(req,res)=>{
-    Task.findByIdAndUpdate(req.params.id,req.body.task,(err,editedTask)=>{
+    Task.findOneAndUpdate({_id:req.params.id},req.body.task,(err,editedTask)=>{
         if(err){
             console.log("trouble updating the entry with id : "+req.param.id);
         }else{

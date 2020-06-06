@@ -2,7 +2,7 @@ var containerBlock=document.querySelector("#data");
 var tasks=document.querySelectorAll(".tasks");
 
 var filterForm =document.querySelector("#filterForm");
-
+var searchForm =document.querySelector("#searchForm");
 filterForm.addEventListener("submit",(event)=>{
     event.preventDefault();
     var f_tasktype =document.querySelector("#f_taskType").value;
@@ -25,7 +25,37 @@ filterForm.addEventListener("submit",(event)=>{
             tasks[i].style.display="none";
         }
     }
+});
+
+searchForm.addEventListener("submit",(event)=>{
+  event.preventDefault();
+  var f_title=document.querySelector("#f_title").value;
+  console.log(f_title);
+  for(var i=0;i<tasks.length;i++){
+      let title = tasks[i].getElementsByClassName("title")[0].innerText;
+      console.log(title);
+      tasks[i].style.display="block";
+      if(f_title!=""&&f_title!=title){
+          tasks[i].style.display="none";
+      }
+  }
+});
+
+
+// ARCHIVE
+
+var archiveBtn = document.querySelector("#archiveBtn");
+archiveBtn.addEventListener("click",()=>{
+  for(var i=0;i<tasks.length;i++){
+    let status = tasks[i].getElementsByClassName("status")[0].innerText;
+    tasks[i].style.display="block";
+    if(status!="completed"){
+        tasks[i].style.display="none";
+    }
+}
 })
+
+
 /*************CLOCK SETTING**********************/
 const hours = document.querySelector('.hours');
 const minutes = document.querySelector('.minutes');
