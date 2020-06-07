@@ -119,7 +119,10 @@ app.get("/register",(req,res)=>{
 
 app.post("/register",(req,res)=>{
     var newUser = {
-        username:req.body.username
+        username:req.body.username,
+        email:req.body.emailID,
+        firstName:req.body.firstName,
+        lastName:req.body.lastName
     };
     User.register(newUser,req.body.password,(err,user)=>{
         if(err){
@@ -127,6 +130,7 @@ app.post("/register",(req,res)=>{
             return res.redirect("/register");
         }
         passport.authenticate("local")(req,res,()=>{
+            console.log(user);
             res.redirect("/home");
         });
     })
