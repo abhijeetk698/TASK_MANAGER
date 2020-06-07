@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo-List</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Alice' rel='stylesheet'>
     <link rel="stylesheet" href="../styles.css"> 
 </head>  
 <body>
 
-
 <nav class="navbar navbar-expand-lg navbar-dark ">
-    <a class="navbar-brand" href="/home">To-Do-List</a>
+    <a class="navbar-brand" href="/home"><i class="fa fa-file-text fa-lg" > </i> To-Do-List</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,24 +20,24 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <form class="form-inline my-2 my-lg-0" id="searchForm" action="/home" method="GET">
         <input class="form-control mr-sm-2" id="f_title" type="search" name="title" placeholder="Search">
-        <button class="btn" id="navbtn" type="submit">Search By Title</button>
+        <button class="btn" id="navbtn" type="submit"><i class="fa fa-search fa-lg"></i>Search By Title</button>
         </form>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item text-right">
             <span class="nav-link" style="color: white;">
+                <i class="fa fa-user-circle fa-lg"></i>
                 <strong>Welcome <%=currentUser.username%></strong>
             </span> 
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
+            <a class="nav-link" href="/logout"><i class="fa fa-power-off fa-lg"> </i> Logout</a>
         </li>
         <li class="nav-item" style="color: white;">
-            <span class="nav-link" id="archiveBtn">Archive</span>
+            <a href="#" class="nav-link" id="archiveBtn" style="color: white;"><i class="fa fa-archive fa-lg"></i> Archive</a>
         </li>
-      </ul>r
+      </ul>
   </nav>
 /************************************************************************************************************/
-
 <div class="container">
 <div style="margin : 20px auto 20px auto;">
     <a class="btn btn-success new" href="/new ">NEW TASK</a>
@@ -116,10 +114,11 @@
                             <span class="title"><%=task[i].title%></span>
                         </div>
                         <div class="col-12 col-sm-3 dueBy">
-                            Due By :-<br/> <span style="color: purple;"><%=task[i].dueDate.toDateString()%></span>
+                            <i class="fa fa-calendar"></i> Due By :-<br/> <span style="color: purple;"><%=task[i].dueDate.toDateString()%></span>
                         </div>
                     </div>
                     <div class="d-flex flex-row">
+                        <div><i class="fa fa-tag"></i></div>
                         <div class="p-2"><span class="taskType"><strong><%=task[i].taskType %></strong></span></div>
                         <div class="p-2"><span class="status"><strong><%=task[i].status%></strong></div>
                     </div>
@@ -132,11 +131,11 @@
             <hr>
             <div class="row">
                 <div class="col-12 col-sm-6 ">
-                    <a href='/home/<%=task[i]._id%>/edit' class="btn btn-success">EDIT</a>
+                    <a href='/home/<%=task[i]._id%>/edit' class="btn btn-success"><i class="fa fa-pencil"></i> EDIT</a>
                 </div>
                 <div class="col-12 col-sm-6 ">
                     <form action="/home/<%=task[i]._id%>/delete?_method=DELETE" method="POST" style="display:inline">
-                        <button type="submit" class="btn btn-danger">DELETE</button>
+                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> DELETE</button>
                     </form>
                 </div>
             </div>

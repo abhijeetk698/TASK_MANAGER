@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDIT</title>
+    <title>Edit List</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
     <link rel="stylesheet" href="../../styles.css">
 </head>  
 <body class="login_body">
 
 <nav class="navbar navbar-expand-lg navbar-dark ">
-    <a class="navbar-brand" href="/home">To-Do-List</a>
+    <a class="navbar-brand" href="/home"><i class="fa fa-file-text fa-lg" > </i>  To-Do-List</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,11 +21,12 @@
       <ul class="navbar-nav " id="navbarItems" style="margin-left:75% ;">
         <li class="nav-item">
             <span class="nav-link" style="color: white;">
+                <i class="fa fa-user-circle fa-lg"></i>
                 <strong>Welcome <%=currentUser.username%></strong>
             </span> 
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
+            <a class="nav-link" href="/logout"><i class="fa fa-power-off fa-lg "></i> Logout</a>
         </li>
 
       </ul>
@@ -33,7 +36,7 @@
 
 <div class=" container">
     <div>
-    <h1 style="color: white; text-align: center;">EDIT TASK</h1>    
+    <h1 style="color: white; text-align: center; font-family: 'Alice','sans-seriff';">EDIT TASK</h1>    
     <div class="row">
         <div class="col-lg-3 col-md-2"></div>
         <div class="col-lg-6 col-md-8 login-box">

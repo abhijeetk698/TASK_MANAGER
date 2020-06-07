@@ -48,7 +48,7 @@ archiveBtn.addEventListener("click",()=>{
   for(var i=0;i<tasks.length;i++){
     let status = tasks[i].getElementsByClassName("status")[0].innerText;
     tasks[i].style.display="block";
-    if(status!="completed"){
+    if(status!="Completed"){
         tasks[i].style.display="none";
     }
 }
