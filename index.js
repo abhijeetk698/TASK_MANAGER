@@ -43,7 +43,7 @@ app.use((req,res,next)=>{
 /**********************ROUTES***************************/
 
 app.get('/',(req,res)=>{
-    res.render("landing");
+    res.redirect("/home");
 });
 
 app.get("/home",isLoggedIn,(req,res)=>{
@@ -118,7 +118,9 @@ app.get("/register",(req,res)=>{
 });
 
 app.post("/register",(req,res)=>{
-    var newUser = {username:req.body.username};
+    var newUser = {
+        username:req.body.username
+    };
     User.register(newUser,req.body.password,(err,user)=>{
         if(err){
             console.log(err);
