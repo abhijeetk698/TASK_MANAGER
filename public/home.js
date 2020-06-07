@@ -16,7 +16,6 @@ filterForm.addEventListener("submit",(event)=>{
         let status = tasks[i].getElementsByClassName("status")[0].innerText;
         let tasksType=tasks[i].getElementsByClassName("taskType")[0].innerText;
         let title = tasks[i].getElementsByClassName("title")[0].innerText;
-        console.log(title)
         tasks[i].style.display="block";
         if( (f_status!="NULL"&&f_status!=status)||
             (f_tasktype!="NULL"&&f_tasktype!=tasksType)||
