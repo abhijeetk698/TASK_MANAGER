@@ -14,7 +14,7 @@ app.use(methodOverride("_method"));
 
 
 // to run in mlab db server
-// const uri = "mongodb+srv://abhijeet:dirtyclown@cluster0-lyzlv.mongodb.net/test?retryWrites=true&w=majority";
+// const uri = "mongodb+srv://{your username}:{your password}@cluster0-lyzlv.mongodb.net/test?retryWrites=true&w=majority";
 // mongoose.connect( uri,{ useNewUrlParser: true ,useUnifiedTopology: true });
 // to run in local environment 
 
@@ -111,6 +111,7 @@ app.delete("/home/:id/delete",isLoggedIn,(req,res)=>{
         }
     })
 });
+
 // passport routes
 
 app.get("/register",(req,res)=>{

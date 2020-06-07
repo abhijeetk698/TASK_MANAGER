@@ -54,6 +54,23 @@ archiveBtn.addEventListener("click",()=>{
 }
 })
 
+// ERROR MESSAGE
+
+var errMsg=document.querySelectorAll(".errMsg");
+var deleteBtn=document.querySelectorAll(".deleteBtn");
+
+
+for(var i=0;i<errMsg.length;i++){
+  (function(index){
+  deleteBtn[index].addEventListener("mouseenter",()=>{
+    errMsg[index].style.display="block";
+    setTimeout(function() {
+      errMsg[index].style.display="none";
+    }, 1000);
+  }, false);
+})(i);
+}
+
 
 /*************CLOCK SETTING**********************/
 const hours = document.querySelector('.hours');
