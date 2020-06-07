@@ -24,8 +24,8 @@
         <input class="form-control mr-sm-2" id="f_title" type="search" name="title" placeholder="Search">
         <button class="btn" id="navbtn" type="submit">Search By Title</button>
         </form>
-      <ul class="navbar-nav mr-auto" id="navbarItems">
-        <li class="nav-item">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item text-right">
             <span class="nav-link" style="color: white;">
                 <strong>Welcome <%=currentUser.username%></strong>
             </span> 
@@ -36,35 +36,38 @@
         <li class="nav-item" style="color: white;">
             <span class="nav-link" id="archiveBtn">Archive</span>
         </li>
-
-      </ul>
-    </div>
+      </ul>r
   </nav>
 /************************************************************************************************************/
 
 <div class="container">
-<div style="margin : 20px auto 20px auto">
+<div style="margin : 20px auto 20px auto;">
     <a class="btn btn-success new" href="/new ">NEW TASK</a>
 </div>
+
 <div class="row">
-    <div class="col-12 col-sm-3">
-        <div id="filterBlock">
+    <div class="col-12 col-md-3">
+        <div id="filterBlock" class="login-form">
         <form action="/home" method="GET" id="filterForm">
-            <div><h3>Filter By:- </h3></div>
-            <div>
-                <input type="radio" id="asc" name="order" value="asc">
-                <label for="asc">Ascending</label>
-                <input type="radio" id="dsc" name="order" value="dsc" checked>
-                <label for="dsc">Descending</label>
+            <div class="form-group"><h3>Filter By:- </h3></div>
+            
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="asc" name="order" value="asc">
+                <label class="form-check-label" for="asc">Ascending</label>
             </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="dsc" name="order" value="dsc" checked>
+                <label for="dsc" class="form-check-label">Descending</label>
+            </div>
+            
             <!--<div>
                 <label for="f_title"> Title </label>
                 <input id="f_title" type="text" name="title">
             </div>-->
-            <div>
-                <div> Task Type : </div>
-                <select name="taskType" id="f_taskType"> 
-                    <option value="NULL">--Please choose an option--</option>
+            <div class="form-group">
+                <label for="f_taskType"> Task Type :- </label>
+                <select name="taskType" id="f_taskType" class="custom-select">  
+                    <option value="NULL">--choose--</option>
                     <option value="Personal">Personal</option>
                     <option value="Work">Work</option>
                     <option value="Shopping">Shopping</option>
@@ -72,10 +75,10 @@
                     <option value="others">others</option>
                 </select>
             </div>
-            <div>
-                <div> status : </div>
-                <select name="status" id="f_status"> 
-                    <option value="NULL">--Please choose an option--</option>
+            <div class="form-group">
+                <label for="f_status"> Status :- </label>
+                <select name="status" id="f_status" class="custom-select"> 
+                    <option value="NULL">--choose--</option>
                     <option value="Completed">completed</option>
                     <option value="In Progress">In-progress</option>
                     <option value="New">New</option>
@@ -101,49 +104,43 @@
         </div>
     </div>
 
-    <div class="col-sm-1"></div>
+    <div class="col-md-1"></div>
 
-    <div class="col-12 col-sm-8">
+    <div class="col-12 col-md-8">
     <% for(var i=task.length-1;i>=0;i--){ %>
-        <div class="tasks row">
-            <div class="col-12 col-sm-9">
-                <div>
-                    <span class="title h2"><%=task[i].title%></span>
-                    <hr>
-                </div>
-                <div>
-                    <div>Body :</div> 
-                    <div style="white-space:pre-line;">
-                        <%=task[i].body%>
+        <div class="tasks">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 col-sm-9 text-capitalize h2 justify-content">
+                            <%=task[i].title%>
+                        </div>
+                        <div class="col-12 col-sm-3 dueBy">
+                            Due By :-<br/> <span style="color: purple;"><%=task[i].dueDate.toDateString()%></span>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <div class="p-2"><span class="taskType"><strong><%=task[i].taskType %></strong></span></div>
+                        <div class="p-2"><span class="status"><strong><%=task[i].status%></strong></div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-3">
-                <div>
-                    <div class="alert alert-primary"><strong><span class="taskType"><%=task[i].taskType %></span></strong></div>
+            <hr>
+            <div class="row">
+                <p class="justify-content"><%=task[i].body%></p>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 col-sm-6 ">
+                    <a href='/home/<%=task[i]._id%>/edit' class="btn btn-success">EDIT</a>
                 </div>
-
-                <div>
-                    <div class="alert alert-success"><strong> <span class="status"><%=task[i].status %></span></strong></div>
-                </div>
-
-                <div style="font-size: small;">
-                    Date : <%=task[i].created%>
-                </div>
-                <div style="font-size: small;">
-                   ( Due Date : <%=task[i].dueDate%>)
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <a href='/home/<%=task[i]._id%>/edit' class="btn btn-success">EDIT</a>
-                    </div>
-                    <div class="col-12">
-                        <form action="/home/<%=task[i]._id%>/delete?_method=DELETE" method="POST" style="display:inline">
-                            <button type="submit" class="btn btn-danger">DELETE</button>
-                        </form>
-                    </div>
+                <div class="col-12 col-sm-6 ">
+                    <form action="/home/<%=task[i]._id%>/delete?_method=DELETE" method="POST" style="display:inline">
+                        <button type="submit" class="btn btn-danger">DELETE</button>
+                    </form>
                 </div>
             </div>
+            
         </div>
     <%}%>
     </div>

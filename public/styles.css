@@ -3,6 +3,21 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.taskType{
+  border: darkblue 1px solid;
+  font-size: 12px;
+  padding: 2px 3px 2px 3px;
+  border-radius: 10px;
+  background: rgb(193, 233, 245);
+}
+.status{
+  border: darkgreen 1px solid;
+  padding: 2px 3px 2px 3px;
+  border-radius: 10px;
+  font-size: 12px;
+  background: rgb(100, 245, 213);
+}
+
 .new{
     background: lightseagreen;
     padding:10px 10px auto ;
@@ -19,6 +34,10 @@ body {
     padding: 50px 20px 20px 50px;
     border-radius: 10px;
     border: 10px #0DB8DE solid;
+}
+
+.dueBy{
+  font-size: 10px;
 }
 
 #navbarItems{
@@ -190,15 +209,16 @@ label {
 html {
   box-sizing: border-box;
 }
+*, *:before, *:after {
+  box-sizing: border-box;
+  outline: none;
+}
 
 *, *::after, *::before {
   box-sizing: inherit;
 }
 
-*, *:before, *:after {
-  box-sizing: border-box;
-  outline: none;
-}
+
 
 .alarm-clock {
   position: relative;
